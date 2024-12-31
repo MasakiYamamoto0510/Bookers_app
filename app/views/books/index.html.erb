@@ -8,7 +8,7 @@
   <%= link_to "Show", book_path(book.id) %>
   <%= link_to "Edit",  book_path(book.id)%>
   <%= link_to "Destroy",  books_path %>
-  <%= link_to "Destroy", book_path(book.id), method: :delete %>
+  <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
 
   
 <% end %>
