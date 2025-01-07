@@ -20,13 +20,22 @@
   box-sizing: border-box;
 }
 
+body {
+  padding: 30px;
+  display: block;
+  unicode-bidi: isolate;
+}
+
+
+
 .bookers_emphasis {
   font-family: "Arial Black";
 }
 
 h1 {
-  padding: 30px 30px 0px 30px;
+  padding: 0px;
   font-size: 30px;
+  font-family: "Arial Black";
 }
 
 p {
@@ -35,8 +44,106 @@ p {
   line-height: 50px;
 }
 
-.link_to_css {
+strong {
+  margin-right: 5px;
+}
+
+.title_body_form {
   margin: 0px 70px;
   font-size: small;
-  line-height: 50px;
 }
+
+.submission_form {
+  margin: 10px 0px;
+}
+
+.link_to_css strong {
+  margin-right: 5px; 
+}
+
+table {
+  border-spacing: 5px 5px;
+}
+
+.table_element {
+  display: inline-block;
+}
+ .table_link {
+  display: block;
+ }
+
+ td {
+  font-size: small;
+ }
+
+ th {
+  font-size: small;
+  font-family: "Arial Black";
+ }
+ .is_num {
+  text-align: left;
+ }
+
+ .show_edit_back {
+  margin: 10px 40px;
+  font-size: small;
+  display: flex;
+ }
+
+ .edit_show_back {
+  margin: 5px 0 0 0;
+  font-size: small;
+  display: flex;
+ }
+
+ .new_book {
+  padding: 10px 0 0 0;
+  font-size: 20px;
+  font-family: "Arial Black";
+ }
+ 
+ .form_design {
+  font-size: small;
+ }
+ 
+ .form_design_error {
+  font-size: small;
+  padding: 1px;
+  background-color: red;
+  display: table;
+}
+.flash-message.notice {
+  margin: 0px 70px 20px 70px;
+  font-size: small;
+  color: #339933;
+}
+ 
+.validation_warning {
+  width: 450px;
+  border: solid red;
+  background-color: #EEEEEE;
+  display: block;
+}
+
+.error_count_message {
+  color: white;
+  background-color: red;
+  font-family: "Arial Black";
+}
+
+.warning_border_red {
+  border: solid red;
+}
+
+.warning_ background-color_red {
+  background-color: red;
+}
+
+ul {
+  margin: 40px;
+}
+
+ .separator::before {
+  content: "|";
+  margin: 0 1px;
+ }
