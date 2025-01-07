@@ -1,28 +1,40 @@
-<h1>Books#index</h1>
-<% @books.each do |book| %>
-  <p>Title</p>
-    <span><%= book.title %></span>
-  <p>Body</p>
-    <span><%= book.body %></span>
-  <%= link_to "Show", book_path(book.id) %>
-  <%= link_to "Edit",  edit_book_path(book.id)%>
-  <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
-<% end %>
-
-<% if @book.errors.any? %>
-  <%= @book.errors.count %> error prohibited this book from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<body>
+  <h1>Books#index</h1>
+  <div class="table">
+    <% @books.each do |book| %>
+      <div class="table_element">
+        <p><%= book.title %></p>
+        <p><%= book.body %></p>
+        <div class ="table_link">
+          <%= link_to "Show", book_path(book.id) %>
+          <%= link_to "Edit",  edit_book_path(book.id)%>
+          <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
-<% end %>
+  </div>
 
-<%= form_with model:@book do |f| %>
-  <h4>Title</h4>
-    <%= f.text_field :title %>
-  <h4>Body</h4>
-    <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %> error prohibited this book from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
+  <h1 class="new_book">New Book</h1>
+  <%= form_with model:@book do |f| %>
+    <div class="submission_form">
+      <div class="form_design">Title</div>
+      <div class="form_design"><%= f.text_field :title %></div>
+    </div>
+
+    <div class="submission_form">
+      <div class="form_design">Body</div>
+      <div class="form_design"><%= f.text_area :body %></div>
+    </div>
+
+    <div><%= f.submit 'Create Book' %></div>
+  <% end %>
+</body>
