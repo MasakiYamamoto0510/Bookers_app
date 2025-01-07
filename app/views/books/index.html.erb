@@ -1,18 +1,26 @@
 <body>
-  <h1>Books#index</h1>
-  <div class="table">
-    <% @books.each do |book| %>
-      <div class="table_element">
-        <p><%= book.title %></p>
-        <p><%= book.body %></p>
-        <div class ="table_link">
-          <%= link_to "Show", book_path(book.id) %>
-          <%= link_to "Edit",  edit_book_path(book.id)%>
-          <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <h1>Books</h1>
+ 
+  <table>
+  <thead>
+  <tr>
+    <th>Title</th>           
+    <th>Body</th>    
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <% @books.each do |book| %>
+  <tbody>
+  <tr>
+    <td class="is_num"><%= book.title %></td>     
+    <td class="is_num"><%= book.body %></td>  
+    <td><%= link_to "Show", book_path(book.id) %></td> 
+    <td><%= link_to "Edit",  edit_book_path(book.id)%></td> 
+    <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %></td>
+  </tr>
+  </tbody>
+  <% end %>
+  </table>
 
   <% if @book.errors.any? %>
     <%= @book.errors.count %> error prohibited this book from being saved:
