@@ -1,19 +1,39 @@
 <body>
   <h1>Editing Book</h1>
+
+  <% if @book.errors.any? %>
+      <div class="validation_warning">
+        <h5 class="error_count_message"><%= @book.errors.count %> error prohibited this book from being saved:</h5>
+        <ul>
+          <% @book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
   <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
-  
-  <div class="submission_form">
-    <div class="title_body_form">Title</div>
-    <div class="title_body_form"><%= f.text_field :title %></div>
-  </div>
+    <div class="submission_form">
+      <% if @book.errors[:title].any? %>
+        <div class="form_design_error">Title</div>
+        <div class="form_design_error"><%= f.text_field :title %></div>
+      <% else %>
+        <div class="form_design">Title</div>
+        <div class="form_design"><%= f.text_field :title %></div>
+      <% end %>
+    </div>
+    <div class="submission_form">
+      <% if @book.errors[:body].any? %>
+        <div class="form_design_error">Body</div>
+        <div class="form_design_error"><%= f.text_area :body %></div>
+      <% else %>
+        <div class="form_design">Body</div>
+        <div class="form_design"><%= f.text_area :body %></div>
+      <% end %>
+    </div>
 
-  <div class="submission_form">
-    <div class="title_body_form">Body</div>
-    <div class="title_body_form"><%= f.text_area :body %></div>
-  </div>
+    <div><%= f.submit 'Update Book' %></div>
 
-  <p><%= f.submit 'Update Book' %></p>
-
-  <div class="edit_show_back"><%= link_to "Show", book_path(@book.id) %><div class="separator"><%= link_to "Back", books_path %></div></div> 
+    <div class="edit_show_back"><%= link_to "Show", book_path(@book.id) %><div class="separator"><%= link_to "Back", books_path %></div></div> 
   <% end %>
 </body>
